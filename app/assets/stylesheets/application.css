@@ -16,3 +16,17 @@
  *= require bootstrap-responsive.min.css
  *= require_self
  */
+
+.centered{
+    text-align: center;
+}
+.product-image-dime {
+  width: 50%;
+  height: 170px;
+}
+.word-wrap{
+  word-wrap: break-word;
+}
+.top-space{
+    margin-top: 10px;
+}

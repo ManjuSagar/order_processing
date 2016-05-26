@@ -24,11 +24,13 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    puts product_params.slice(:pictures["pictures"])
+    puts product_params
     @product = Product.new(product_params.slice(:name, :description))
+    @picture = Picture.create!(product_params.slice(:avatar))
+    @product.pictures << @picture
     respond_to do |format|
       if @product.save
-         @product.pictures.create!(product_params.slice(:pictures))
+         #@product.pictures.create!(product_params.slice(:pictures))
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -64,7 +66,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :description, pictures:[:avatar])
+      params.require(:product).permit(:name, :description, :avatar)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_product

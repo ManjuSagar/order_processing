@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+
     <div>
       <%=f.label :name %>
       <%=f.text_field :name %>
@@ -22,13 +23,13 @@
     </div>
 
     <div>
-      <%=f.fields_for :pictures do |picture| %>
-        <%=picture.file_field :avatar %>
-      <% end %>
+      <%#=f.fields_for :pictures do |picture| %>
+          <%=f.file_field :avatar %>
+
     </div>
 
 
-  <div class="actions">
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
