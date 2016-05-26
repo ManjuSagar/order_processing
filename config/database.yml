@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username: sagar
+  password: sagar
+  database: order_processing
+  reconnect: true
