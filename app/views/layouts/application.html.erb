@@ -6,9 +6,60 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
-
+<body style="margin-top: 30px">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="col-md12">
+      <div class="col-md-6">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul>
+      </div>
+      <% if current_user.present? %>
+          <div class="col-md-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Valuable Product", valuable_product_path, :class=> "active"%></li>
+            </ul>
+          </div>
+          <div class="col-md-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Valuable customer", valuable_customer_path, :class=> "active"%></li>
+            </ul>
+          </div>
+          <div class="col-md-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Customer Contacts", customer_path, :class=> "active"%></li>
+            </ul>
+          </div>
+    <div class="col-md-2">
+      <ul class="nav navbar-nav">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Your Cart <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% count = current_user.order_count(current_user) %>
+            <%= "You Have #{count} items in the Cart." %><br/>
+            <% if count > 0 %>
+            <%= link_to "Click here to Checkout", new_order_path%>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Logout", destroy_user_session_path, :class=> "active", method: :delete %></li>
+      </ul>
+    </div>
+   <% else %>
+          <div class="col-md-3">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Login", new_user_session_path, :class=> "pull-right" %></li>
+            </ul>
+          </div>
+   <% end %>
+    </div>
+  </div>
+</nav>
+<%= yield%>
 </body>
 </html>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :line_items
+  resources :orders
+  get 'valuable_product' => 'products#valuable_product'
+  get 'valuable_customer' => 'products#valuable_customer'
+  get 'customer' => 'products#customer_info'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

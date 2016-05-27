@@ -53,6 +53,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def valuable_product
+   @popular_items =  LineItem.get_valuable_product
+    puts @popular_items
+  end
+
+  def valuable_customer
+    @valuable_customer =  LineItem.get_valuable_customer
+  end
+
+  def customer_info
+    @customer_info = User.get_info
+    puts @customer_info
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
