@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    puts product_params
     @product = Product.new(product_params.slice(:name, :description))
     @picture = Picture.create!(product_params.slice(:avatar))
     @product.pictures << @picture
