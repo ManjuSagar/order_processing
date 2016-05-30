@@ -1,4 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="col-md-3 centered top-space">
+  <div class="col-md-12">
+    <%= image_tag(@product.pictures.first.avatar, :class=>'product-image-dime')%>
+  </div>
+  <h4>
+    <div class="row word-wrap">
+      <b><%= @product.name%></b><br/>
+    </div>
+  </h4>
+  <h5>
+    <div class="row word-wrap">
+      <%= truncate(@product.description, :length=> 47)%>
+    </div>
+  </h5></a>
+  <h5>
+    <div class="row word-wrap">
+      Price: <%= @product.price%>
+    </div>
+  </h5>
+  <div class="row">
+    <%= button_to "Add to Cart", line_items_path(:product_id=> @product.id), :class=>"btn btn-default"%>
+  </div>
+</div>
+
+

@@ -13,23 +13,29 @@
 
 
     <div>
-      <%=f.label :name %>
+      <%=f.label :name %>:
       <%=f.text_field :name %>
     </div>
 
     <div>
-      <%=f.label :description %>
-      <%=f.text_field :description %>
-    </div>
+      <%=f.label :description %>:
+      <%=f.text_area :description %>
+    </div><br/>
+
+    <div>
+      <%=f.label :price %>:
+      <%=f.number_field :price, :min=> 0, :style=>"height: 25px;" %>
+    </div><br/>
 
     <div>
       <%#=f.fields_for :pictures do |picture| %>
+          <%=f.label :avatar, "Upload Image" %>:
           <%=f.file_field :avatar %>
 
     </div>
 
 
-    <div class="actions">
-    <%= f.submit %>
+    <div class="btn">
+    <%= f.submit :class=>'btn' %>
   </div>
 <% end %>

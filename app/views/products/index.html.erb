@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" style="margin-top: 130px">
     <p id="notice"><%= notice %></p>
 
     <h1 class="centered">Listing Products</h1>
     <div class="col-md-12">
       <% @products.each do |product|%>
-          <a href='/products/show/<%="#{product.id}"%>'>
+          <a href='/products/<%="#{product.id}"%>'>
         <div class="col-md-3 centered top-space">
           <div class="col-md-12">
             <%= image_tag(product.pictures.first.avatar, :class=>'product-image-dime')%>
